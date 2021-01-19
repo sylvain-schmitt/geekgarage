@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard Admin{% endblock %}
+
+{% block body %}
+
+    {% if app.request.attributes.get('_route') == 'app_map_edit' %}
+        <h1>Editer le centre</h1>
+    {% else %}
+        <h1>Ajouter un centre</h1>
+        <br>
+    {% endif %}
+
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    {% if app.request.attributes.get('_route') == 'app_map_edit' %}
+        <button type="submit" class="btn btn-primary mt-2" formnovalidate>Modifier</button>
+    {% else %}
+        <button type="submit" class="btn btn-primary  mt-2" formnovalidate>Ajouter le centre</button>
+    {% endif %}
+    {{ form_end(form) }}
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard Admin{% endblock %}
+
+{% block body %}
+
+    <h1>Dashboard Admin</h1>
+
+
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Ville</th>
+                <th scope="col">Adresse Postale</th>
+                <th scope="col">Numéro de téléphone</th>
+                <th scope="col">E-Mail</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for agency in agencies %}
+                <tr>
+                    <th scope="row">{{ agency.city }}</th>
+                    <td>{{ agency.address }}</td>
+                    <td>{{ agency.number }}</td>
+                    <td>{{ agency.mail }}</td>
+                    <td><a href="{{ path('app_map_edit',{id: agency.id}) }}" class="btn btn-success">Editer</a></td>
+                    <td><a href="{{ path('app_map_delete', {id: agency.id}) }}"
+                           onclick="confirm('êtes vous sur de vouloir supprimer {{ agency.city }} ?')"
+                           class="btn btn-danger">Supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

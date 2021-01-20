@@ -22,12 +22,6 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 {% if    app.request.get('_route')  == 'app_admin'    %}
-                <li class="nav-item">
-{#                    <a class="nav-link active" aria-current="page" href="{{ path('app_map_edit') }}">Modif Carte</a>#}
-                </li>
-                    <li>
-                        <a class="nav-link active}" aria-current="page" href="{{ path('app_user_edit') }}">Gestion User</a>
-                    </li>
                     <li>
                         <a class="nav-link active" aria-current="page" href="{{ path('app_map_create') }}">Ajouter un centre</a>
                     </li>
@@ -44,7 +38,6 @@
     <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
     <script src='https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js'></script>
     {{ encore_entry_script_tags('app') }}
-    <script src="{{ asset('js/app.js') }}"></script>
 {% endblock %}
 </body>
 </html>

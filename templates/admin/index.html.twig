@@ -4,10 +4,11 @@
 
 {% block body %}
 
-    <h1>Dashboard Admin</h1>
 
 
     <div class="container">
+    <h1 class="text-center mb-5">Dashboard Admin</h1>
+    {{ include ('partials/_flash_messages.html.twig') }}
         <table class="table table-striped">
             <thead>
             <tr>
@@ -15,8 +16,7 @@
                 <th scope="col">Adresse Postale</th>
                 <th scope="col">Numéro de téléphone</th>
                 <th scope="col">E-Mail</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
+                <th scope="col">Action</th>
             </tr>
             </thead>
             <tbody>
@@ -26,10 +26,12 @@
                     <td>{{ agency.address }}</td>
                     <td>{{ agency.number }}</td>
                     <td>{{ agency.mail }}</td>
-                    <td><a href="{{ path('app_map_edit',{id: agency.id}) }}" class="btn btn-success">Editer</a></td>
-                    <td><a href="{{ path('app_map_delete', {id: agency.id}) }}"
-                           onclick="confirm('êtes vous sur de vouloir supprimer {{ agency.city }} ?')"
-                           class="btn btn-danger">Supprimer</a>
+                    <td><a href="{{ path('app_map_edit',{id: agency.id}) }}" class="btn btn-success">Editer</a>
+                     <a href="#" onclick="event.preventDefault(); confirm('êtes vous sur de vouloir supprimer le centre {{agency.city}} ?') && document.getElementById('js-agency-delete-form-{{ agency.id }}').submit();" class="btn btn-danger">supprimer</a> 
+                        <form id="js-agency-delete-form-{{ agency.id }}" action="{{ path('app_map_delete', {id: agency.id}) }}" method="post" style="display:none;">
+                            <input type="hidden" name="csrf_token"value="{{ csrf_token('agency_deletion_' ~ agency.id) }}">
+                            <input type="hidden" name="_method" value="DELETE">
+                        </form>
                     </td>
                 </tr>
             {% endfor %}

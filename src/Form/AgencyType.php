@@ -19,13 +19,6 @@ class AgencyType extends AbstractType
             ->add('city', TextType::class,[
                 'label' => 'Ville',
             ])
-//            TODO : CREE TABLEAU
-            ->add('lat', NumberType::class,[
-                'label' => 'Latitude',
-            ])
-            ->add('lon', NumberType::class,[
-                'label' => 'Longitude',
-            ])
             ->add('number', TextType::class,[
                 'label' => 'Numéro de téléphone',
             ])

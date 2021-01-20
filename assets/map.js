@@ -30,10 +30,8 @@ xmlhttp.onreadystatechange = () => {
         if(xmlhttp.status == 200){
             // On traite les données reçues
             let donnees = JSON.parse(xmlhttp.responseText)
-            console.log(donnees)
             // On boucle sur les données (ES8)
             Object.entries(donnees.agences).forEach(agence => {
-                console.log(agence)
                 // Ici j'ai une seule agence
                 // On crée un marqueur pour l'agence
                 let marker = L.marker([agence[1].lat, agence[1].lon], {icon: icone})

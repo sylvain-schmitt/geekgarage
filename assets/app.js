@@ -6,6 +6,9 @@
  */
 
 // any CSS you import will output into a single css file (app.scss in this case)
+import './styles/leaflet.css';
+import './styles/MarkerCluster.css';
+import './styles/MarkerCluster.Default.css';
 import './styles/app.scss';
 import { Tooltip, Toast, Popover } from 'bootstrap';
 

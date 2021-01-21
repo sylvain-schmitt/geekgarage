@@ -2,7 +2,7 @@ version: '3'
 
 services:
   mailhog:
-    container_name: mailhog_1
+    container_name: mailhog_Geek_Garage
     image: mailhog/mailhog:v1.0.0
     ports:
       - "1025:1025"

@@ -15,3 +15,9 @@ import { Tooltip, Toast, Popover } from 'bootstrap';
 // start the Stimulus application
 import './bootstrap';
 import './map';
+var myModal = document.getElementById('modal-contact')
+var myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', function () {
+  myInput.focus()
+})

@@ -2,12 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Contact;
 use App\Form\ContactType;
 use App\Repository\AgencyRepository;
+use App\Service\MailerServiceInterface;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -19,31 +19,27 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="app_home")
      */
-    public function home(Request $request, MailerInterface $mailer): Response
+    public function home(Request $request, MailerServiceInterface $mailer): Response
     {
-        $form = $this->createForm(ContactType::class);
+        $contact = new Contact();
+        $form = $this->createForm(ContactType::class, $contact);
 
-        $contact = $form->handleRequest($request);
+        $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()){
-            $email = (new TemplatedEmail())
-                ->from($contact->get('email')->getData())
-                ->to('geekgarage@test.fr')
-                ->subject('Contact depuis le site Geek Garage')
-                ->htmlTemplate('emails/contact.html.twig')
-                ->context([
-                    'center'=>$contact->get('center')->getData(),
-                    'nom' => $contact->get('nom')->getData(),
-                    'mail' => $contact->get('email')->getData(),
-                    'sujet' => $contact->get('sujet')->getData(),
-                    'message' => $contact->get('message')->getData(),
-                ])
-                ;
-            $mailer->send($email);
+        if ($form->isSubmitted() && $form->isValid()) {
 
+            $mailer->send($contact->getEmail(), 'geekgarage@test.fr', 'Contact depuis le site Geek Garage',
+                'emails/contact.html.twig',
+                'emails/contact.txt.twig', [
+                    'center' => $contact->getCenter(),
+                    'nom' => $contact->getName(),
+                    'mail' => $contact->getEmail(),
+                    'sujet' => $contact->getSubject(),
+                    'message' => $contact->getMessage(),
+                ]);
             $this->addFlash('message', 'Votre Mail à bien été pris en compte');
             return $this->redirectToRoute('app_home');
-                }
+        }
         return $this->render('home/index.html.twig', [
             'form' => $form->createView()
         ]);
@@ -62,7 +58,7 @@ class HomeController extends AbstractController
 
         $datas = [];
 
-        foreach ($agencies as $key =>$agency){
+        foreach ($agencies as $key => $agency) {
             $datas[$key]['id'] = $agency->getId();
             $datas[$key]['city'] = $agency->getCity();
             $datas[$key]['lat'] = $agency->getLat();

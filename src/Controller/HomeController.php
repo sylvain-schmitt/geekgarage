@@ -32,13 +32,13 @@ class HomeController extends AbstractController
                 ->subject('Contact depuis le site Geek Garage')
                 ->htmlTemplate('emails/contact.html.twig')
                 ->context([
+                    'center'=>$contact->get('center')->getData(),
                     'nom' => $contact->get('nom')->getData(),
                     'mail' => $contact->get('email')->getData(),
                     'sujet' => $contact->get('sujet')->getData(),
                     'message' => $contact->get('message')->getData(),
                 ])
-            ;
-
+                ;
             $mailer->send($email);
 
             $this->addFlash('message', 'Votre Mail à bien été pris en compte');

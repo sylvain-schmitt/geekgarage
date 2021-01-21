@@ -42,6 +42,7 @@ class HomeController extends AbstractController
             $mailer->send($email);
 
             $this->addFlash('message', 'Votre Mail à bien été pris en compte');
+            return $this->redirectToRoute('app_home');
                 }
         return $this->render('home/index.html.twig', [
             'form' => $form->createView()

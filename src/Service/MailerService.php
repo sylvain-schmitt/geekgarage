@@ -33,12 +33,12 @@ class MailerService implements MailerServiceInterface
         $this->logger = $logger;
     }
 
-    public function send(string $from, string $to, string $subject, string $html, string $txt, array $params)
+    public function send(string $from, string $to, string $phone, string $html, string $txt, array $params)
     {
         $email = (new TemplatedEmail())
             ->from($from)
             ->to(new Address($to))
-            ->subject($subject)
+            ->subject($phone)
             ->htmlTemplate($html)
             ->textTemplate($txt)
             ->context($params)

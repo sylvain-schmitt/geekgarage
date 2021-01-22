@@ -17,7 +17,7 @@ class Contact
 
     private $email;
 
-    private $subject;
+    private $phone;
 
     private $message;
 
@@ -62,14 +62,14 @@ class Contact
         return $this;
     }
 
-    public function getSubject(): ?string
+    public function getPhone(): ?string
     {
-        return $this->subject;
+        return $this->phone;
     }
 
-    public function setSubject(string $subject): self
+    public function setPhone(string $phone): self
     {
-        $this->subject = $subject;
+        $this->phone = $phone;
 
         return $this;
     }

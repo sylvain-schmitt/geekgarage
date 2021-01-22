@@ -5,7 +5,7 @@ namespace App\Form;
 use App\Entity\Agency;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -19,8 +19,13 @@ class AgencyType extends AbstractType
             ->add('city', TextType::class,[
                 'label' => 'Ville',
             ])
-            ->add('number', TextType::class,[
-                'label' => 'Numéro de téléphone',
+            ->add('number', TelType::class,[
+                'label' => 'Téléphone',
+                'attr' => [
+                    'pattern' => '^0[0-9]{1} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}',
+                    'maxlength' => 14,
+                    'placeholder' => 'Exemple : 01 23 45 67 89'
+                ]
             ])
             ->add('mail', EmailType::class,[
                 'label' => 'E-Mail',

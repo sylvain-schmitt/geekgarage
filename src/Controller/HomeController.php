@@ -34,7 +34,7 @@ class HomeController extends AbstractController
                     'center' => $contact->getCenter(),
                     'nom' => $contact->getName(),
                     'mail' => $contact->getEmail(),
-                    'sujet' => $contact->getSubject(),
+                    'phone' => $contact->getPhone(),
                     'message' => $contact->getMessage(),
                 ]);
             $this->addFlash('message', 'Votre Mail à bien été pris en compte');

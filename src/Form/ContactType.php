@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Contact;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -22,16 +23,21 @@ class ContactType extends AbstractType
             'required' => true
             ])
             ->add('name', TextType::class,[
-                'label' => 'Votre Nom',
+                'label' => 'Votre Nom et Prénom',
             ])
             ->add('email', EmailType::class, [
-                'label' => 'Votre e-mail',
+                'label' => 'Votre E-mail',
             ])
-            ->add('subject', TextType::class, [
-                'label' => 'Sujet du message',
+            ->add('phone', TelType::class,[
+                'label' => 'Téléphone',
+                'attr' => [
+                    'pattern' => '^0[0-9]{1} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}',
+                    'maxlength' => 14,
+                    'placeholder' => 'Exemple : 01 23 45 67 89'
+                ]
             ])
             ->add('message', TextareaType::class, [
-                'label' => 'Votre message',
+                'label' => 'Décrivez votre problème',
             ])
         ;
     }

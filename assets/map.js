@@ -55,7 +55,7 @@ xmlhttp.onreadystatechange = () => {
         let groupe = new L.featureGroup(arrayMarkers);
 
         // On adapte le zoom au groupe
-        carte.fitBounds(groupe.getBounds().pad(0.5));
+        carte.fitBounds(groupe.getBounds());
 
         carte.addLayer(markers);
     }

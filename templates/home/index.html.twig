@@ -4,34 +4,66 @@
 
 {% block body %}
 
-    <h1 class="my-5 text-center">Choisir son centre</h1>
-	    {% for message in app.flashes('message') %}
-       		<div class="alert alert-success alert-dismissible fade show" role="alert">
-               {{ message }}
-               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-    	{% endfor %}
-    <div id="map" class="mx-auto"> </div>
+<section id="home">
+	<h1 class="my-5 text-center">Qui sommes nous</h1>
+		<main class="page-main">
+			<div>
+				<h2>Lorem ipsum dolor sit amet consectetur</h2>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus maxime corporis, magnam veniam ad sapiente!</p>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus maxime corporis, magnam veniam ad sapiente!</p>
+			</div>
+		</main>
+</section>
+<section class="container">
+	<h2 id="service" class="my-5 text-center h1">Type de préstation</h2>
+		<div class="slideshow rounded shadow">
+			<div class="slideshow-item">
+				<img src="images/slide/diag.jpg" alt="Diagnostique image">
+				<div class="slideshow-item-text">
+					<h5>Diagnostic</h5>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+				</div>
+			</div>
+			<div class="slideshow-item">
+				<img src="images/slide/soft.jpg" alt="software image">
+				<div class="slideshow-item-text">
+					<h5>Software</h5>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+				</div>
+			</div>
+			<div class="slideshow-item">
+				<img src="images/slide/maint.jpg" alt="maintenance image">
+				<div class="slideshow-item-text">
+					<h5>Maintenance</h5>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+				</div>
+			</div>
+		</div>
+</section>
+<section id="contact" class="container">
+    <h2 class="my-5 text-center h1">Choisir son centre</h2>
+	     {{ include ('partials/_flash_messages.html.twig') }}
+	<div id="map" class="mx-auto  rounded shadow"> </div>
     <div class="container mt-4 mb-5">
         <div class="modal fade" id="modal-contact" tabindex="-1" aria-labelledby="modal-contactLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title" id="modal-contactLabel">Nous contacter</h5>
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-				</button>
-			</div>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>			</div>
 			{{ form_start(form) }}
 			<div class="modal-body">
             {{ form_widget(form)}}
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-				<button type="submit" class="btn btn-primary">Envoyer</button>
+				<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fermer</button>
+				<button type="submit" class="btn btn-outline-danger">Envoyer</button>
 			</div>
 			{{ form_end(form) }}
 			</div>
 		</div>
+		</div>
     </div>
+</section>
 
 {% endblock %}

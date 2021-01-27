@@ -9,8 +9,8 @@
 import './styles/leaflet.css';
 import './styles/MarkerCluster.css';
 import './styles/MarkerCluster.Default.css';
-import './styles/app.scss';
 import { Tooltip, Toast, Popover } from 'bootstrap';
+import './styles/app.scss';
 
 // start the Stimulus application
 import './bootstrap';
@@ -21,3 +21,32 @@ var myInput = document.getElementById('myInput')
 myModal.addEventListener('shown.bs.modal', function () {
   myInput.focus()
 })
+
+let mainNavLinks = document.querySelectorAll(".nav-link");
+
+window.addEventListener("scroll", event => {
+  let fromTop = window.scrollY;
+
+  mainNavLinks.forEach(link => {
+    let section = document.querySelector(link.hash);
+    
+    if (
+        section.offsetTop <= fromTop &&
+        section.offsetTop + section.offsetHeight > fromTop
+        ) {
+            link.classList.add("active");
+    } else {
+      link.classList.remove("active");
+    }
+  });
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});

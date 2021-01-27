@@ -1,8 +1,95 @@
 @import "~bootstrap/scss/bootstrap";
+@import'./font/KELMSCOT.TTF';
+
+body{
+  font-family: 'KELMSCOTT';
+  background-image: url(./background/bg.png);
+  padding-top: 10em;
+}
+
+p.logo{
+  text-shadow: 2px 1px 0 #F5F5F5, 3px 3px 0 #ea4128;
+}
+
+h1{
+  text-shadow: 2px 1px 0 #F5F5F5, 3px 3px 0#B8B8B5;
+}
+
+#home{
+  min-height: 100vh;
+  padding-top: 10em;
+  margin-top: -10em;
+}
+
+#service{
+  padding-top: 5em;
+  margin-top: -5em;
+}
+
+section{
+  min-height: 100vh;
+}
+
+#contact{
+  padding-top: 10em;
+  margin-top: -10em;
+}
+
+.nav-link{
+  color: #F5F5F5 !important;
+  font-size: 18px;
+  letter-spacing: 1px;
+  padding-right: 5em !important;
+
+  &:hover{
+    color: #ea4128 !important;
+  }
+  &.active{
+    color: #ea4128 !important;
+  }
+}
+
+.line{
+  top: 90%;
+  position: absolute;
+  width: 100%;
+  border-bottom: medium dashed #B8B8B5;
+}
+
+.page-main {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  min-height: 70%;
+  background: #9e89b8
+  url('./images/header.jpg') no-repeat
+  center / cover;
+  background-blend-mode: luminosity;
+  color: #F5F5F5;
+}
+
+.page-main div { 
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  max-width: 500px;
+  max-height: 50%;
+}
+
+.page-main h2 {
+  margin-bottom: 20px;
+}
+
+.page-main p + p {
+  margin-top: 10px;
+}
+
 
 #map {
-  width: 600px;
-  height: 600px;
+  width:100%;
+  height:65%;
+  margin-bottom: 5rem;
 }
 
 .online {
@@ -12,5 +99,162 @@
 .btnMapContact a{
   color: #DF4759
 }
+/*-- slider --*/
+.slideshow{
+  width: 100%;
+  height: 50vh;
+  position: relative;
+  overflow: hidden;
+}
 
+.slideshow-item{
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  opacity: 0;
+  animation: slideanim 31s infinite;
+}
 
+.slideshow-item:nth-child(1),
+.slideshow-item:nth-child(1) img{
+  animation-delay: 0;
+}
+.slideshow-item:nth-child(2),
+.slideshow-item:nth-child(2) img{
+  animation-delay: 10s;
+}
+
+.slideshow-item:nth-child(3),
+.slideshow-item:nth-child(3) img{
+  animation-delay: 20s;
+}
+
+.slideshow-item img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: zoom 31s infinite;
+}
+
+.slideshow-item-text{
+  max-width: 50%;
+  position: absolute;
+  bottom: -25%;
+  transform: translateY(-50%);
+  left: 0;
+  background-color: rgba(0,0,0,0.8);
+  color: #fff;
+  padding: 1rem 5rem;
+}
+
+.slideshow-item-text h5{
+  font-size: 3.5rem;
+  letter-spacing: 3px;
+}
+
+.slideshow-item-text p{
+  font-weight: 300;
+  font-size: 1.6rem;
+  margin-top: 2rem;
+}
+
+@keyframes slideanim{
+  25%{
+      opacity: 1;
+  }
+  40%{
+      opacity: 0;
+  }
+}
+
+@keyframes zoom{
+  100%{
+      transform: scale(1.3);
+  }
+}
+
+@media screen and (max-width: 1200px){
+  .slideshow-item-text{
+      max-width: 50%;
+      bottom: -25%;
+  }
+  
+}
+
+@media screen and (max-width: 995px){
+  .slideshow-item-text{
+      max-width: 60%;
+      transform: translateY(0);
+      bottom: 0;
+
+  }
+
+  .slideshow-item-text h5{
+      font-size: 2.5rem;
+  }
+
+  .slideshow-item-text p{
+      font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 600px){
+  .slideshow-item-text{
+      max-width: 100%;
+      top: 50%;
+      transform: translateY(0);
+      bottom: 0;
+  }
+
+  .slideshow-item-text h5{
+      font-size: 2rem;
+  }
+
+  .slideshow-item-text p{
+      font-size: 1rem;
+  }
+}
+
+.footer h3 {
+  font-weight: normal;
+  color: #fff;
+  padding: 5px 0 5px 10px;
+  border-left: 4px solid #ea4128;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.footer p, .footer {
+  color: #fff;
+  font-size: 16px;
+  text-shadow: 0 0 1px #000;
+  font-weight: normal;
+}
+
+p.address{
+  background: url('./contact/marker.png') 0 3px no-repeat;
+  background-size: 17px 23px;
+  padding-left: 30px;
+}
+
+p.phone{
+  background: url('./contact/phone.png') 0 3px no-repeat;
+  background-size: 17px 25px;
+  padding-left: 30px;
+}
+
+p.mouse{
+  background: url('./contact/mouse.png') 0 3px no-repeat;
+  background-size: 17px 30px;
+  padding-left: 30px;
+  min-height: 36px;
+}
+
+.footer a, .footer a:visited {
+  color: #ea4128;
+  text-decoration: none;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}

@@ -37,9 +37,11 @@ class HomeController extends AbstractController
                     'phone' => $contact->getPhone(),
                     'message' => $contact->getMessage(),
                 ]);
+            $url = $this->generateUrl('app_home', [
+                '_fragment' => 'contact'
+            ]);
             $this->addFlash('success', 'Votre Mail à bien été pris en compte');
-            return $this->redirect(
-                $this->generateUrl('app_home') . '#contact');
+            return $this->redirect($url);
         }
         return $this->render('home/index.html.twig', [
             'form' => $form->createView()

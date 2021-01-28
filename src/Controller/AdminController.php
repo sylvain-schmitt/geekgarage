@@ -72,8 +72,7 @@ class AdminController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $address = $form->getData()->getAddress();
-            $city = $form->getData()->getCity();
-            $search_url = "https://nominatim.openstreetmap.org/search?q=$address $city&format=json";
+            $search_url = "https://nominatim.openstreetmap.org/search?q=$address&format=json";
             $httpOptions = [
                 "http" => [
                     "method" => "GET",

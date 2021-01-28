@@ -1,7 +1,7 @@
 let arrayMarkers = [];
 
 // On initialise la carte
-let carte = L.map('map').setView([47.6333, 6.1667], 11);
+let carte = L.map('map').setView([47.6333, 6.1667], 13);
 
 // On charge les "tuiles"
 L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
@@ -55,7 +55,7 @@ xmlhttp.onreadystatechange = () => {
         let groupe = new L.featureGroup(arrayMarkers);
 
         // On adapte le zoom au groupe
-        carte.fitBounds(groupe.getBounds());
+        carte.fitBounds(groupe.getBounds().pad(0.5));
 
         carte.addLayer(markers);
     }

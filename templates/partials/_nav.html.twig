@@ -1,3 +1,4 @@
+{% set route = app.request.attributes.get('_route') %}
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark mb-5">
     <div class="container">
         <a class="navbar-brand" href="{{ path('app_home') }}"><p class="logo h1">GeekGarage</p></a>
@@ -6,7 +7,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                {% if app.request.attributes.get('_route') == 'app_home'   %}
+                {% if route == 'app_home'   %}
                     <li>
                         <a class="nav-link active"  href="#home">Acceuil</a>
                     </li>
@@ -17,19 +18,24 @@
                         <a class="nav-link"  href="#contact">Contact</a>
                     </li>
                 {% endif %}
-                {% if app.request.attributes.get('_route') == 'app_admin'   %}
-                    {#     TODO : Modifier pour l'accès admin#}
+                {% if is_granted('ROLE_USER') %}
+                    {% if route == 'app_admin' or route == 'app_register' %}
+                    <li>
+                        <a class="nav-link"  href="{{ path('app_admin') }}">Admin</a>
+                    </li>
                     <li>
                         <a class="nav-link"  href="{{ path('app_map_create') }}">Ajouter un centre</a>
                     </li>
-                {% endif %}
-                {% if is_granted('ROLE_USER') %}
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{{ path('app_register') }}" >nouvelle utilisateur</a>
+                    </li>
                     <li class="nav-item ">
                         <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('js-logout-form').submit();">Se déconnecter</a>
                     </li>
                     <form id="js-logout-form" action="{{ path('app_logout') }}" method="POST" style="display: none;">
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('logout') }}">
                     </form>
+                    {% endif %}
                 {% endif %}
             </ul>
         </div>

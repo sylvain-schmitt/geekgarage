@@ -5,34 +5,35 @@
 {% block body %}
 
 <section id="home">
-	<h1 class="my-5 text-center">Qui sommes nous</h1>
+	<h1 class="my-5 text-center">Qui sommes nous ?</h1>
 		<main class="page-main">
 			<div>
-				<h2>Lorem ipsum dolor sit amet consectetur</h2>
+				<h2>Geek Garage By <img class="main-logo" src="https://www.cloud-elearning.eu/php5/manager/ressources/tpl/login/images/logo.svg" alt="onlineformapro-logo"></h2> 
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus maxime corporis, magnam veniam ad sapiente!</p>
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus maxime corporis, magnam veniam ad sapiente!</p>
 			</div>
 		</main>
 </section>
-<section class="container">
-	<h2 id="service" class="my-5 text-center h1">Type de préstation</h2>
+    <div class="sep"></div>
+<section id="service" class="container">
+	<h2 class="my-5 text-center h1">Type de préstation</h2>
 		<div class="slideshow rounded shadow">
 			<div class="slideshow-item">
-				<img src="images/slide/diag.jpg" alt="Diagnostique image">
+				<img src="images/slide/diag.jpeg" alt="Diagnostique image">
 				<div class="slideshow-item-text">
 					<h5>Diagnostic</h5>
 					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
 				</div>
 			</div>
 			<div class="slideshow-item">
-				<img src="images/slide/soft.jpg" alt="software image">
+				<img src="images/slide/soft.jpeg" alt="software image">
 				<div class="slideshow-item-text">
 					<h5>Software</h5>
 					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
 				</div>
 			</div>
 			<div class="slideshow-item">
-				<img src="images/slide/maint.jpg" alt="maintenance image">
+				<img src="images/slide/maint.jpeg" alt="maintenance image">
 				<div class="slideshow-item-text">
 					<h5>Maintenance</h5>
 					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
@@ -40,6 +41,7 @@
 			</div>
 		</div>
 </section>
+    <div class="sep2"></div>
 <section id="contact" class="container">
     <h2 class="my-5 text-center h1">Choisir son centre</h2>
 	     {{ include ('partials/_flash_messages.html.twig') }}

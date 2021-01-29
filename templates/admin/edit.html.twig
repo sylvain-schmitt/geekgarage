@@ -3,9 +3,10 @@
 {% block title %}Dashboard Admin{% endblock %}
 
 {% block body %}
+    {% set route = app.request.attributes.get('_route') %}
     <div class="container">
         <div class="text-center">
-            {% if app.request.attributes.get('_route') == 'app_map_edit' %}
+            {% if route == 'app_map_edit' %}
                 <h1>Editer le centre</h1>
             {% else %}
                 <h1>Ajouter un centre</h1>
@@ -16,7 +17,7 @@
                 {{ form_start(form) }}
                 {{ form_widget(form) }}
                 <div class="d-grid gap-2 mt-4">
-                {% if app.request.attributes.get('_route') == 'app_map_edit' %}
+                {% if route == 'app_map_edit' %}
                     <button type="submit" class="btn btn-outline-danger mt-3" formnovalidate>Modifier</button>
                 {% else %}
                     <button type="submit" class="btn btn-outline-danger  mt-3" formnovalidate>Ajouter le centre</button>

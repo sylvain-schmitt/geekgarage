@@ -55,6 +55,11 @@ class Agency
      */
     private $comment;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $count = 0;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -140,6 +145,18 @@ class Agency
     public function setComment(string $comment): self
     {
         $this->comment = $comment;
+
+        return $this;
+    }
+
+    public function getCount(): ?int
+    {
+        return $this->count;
+    }
+
+    public function setCount(int $count): self
+    {
+        $this->count = $count;
 
         return $this;
     }

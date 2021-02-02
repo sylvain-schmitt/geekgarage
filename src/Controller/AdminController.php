@@ -19,7 +19,7 @@ class AdminController extends AbstractController
     public function index(AgencyRepository $agencyRepository): Response
     {
         $agencies = $agencyRepository->findAll();
-        return $this->render('admin/index.html.twig', compact(('agencies'))
+        return $this->render('admin/index.html.twig', compact('agencies')
         );
     }
     /**
@@ -33,7 +33,7 @@ class AdminController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $address = $form->getData()->getAddress();
-            $search_url = "https://nominatim.openstreetmap.org/search?q=.$address.&format=json";
+            $search_url = "https://nominatim.openstreetmap.org/search?q=$address&format=json";
             $httpOptions = [
                 "http" => [
                     "method" => "GET",
@@ -98,6 +98,7 @@ class AdminController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
     /**
      * @Route("/admin/map_delete/{id<[0-9]+>}", name="app_map_delete", methods={"DELETE"})
      */
@@ -111,5 +112,29 @@ class AdminController extends AbstractController
         }
         return $this->redirectToRoute('app_admin');
     }
+
+    /**
+     * @Route("/admin/compteur/inc/{id<[0-9]+>}", name="app_compteur_inc")
+     */
+    public function inc(EntityManagerInterface $em, Agency $agency)
+        {
+            $count = $agency->getCount();
+            $count++;
+            $agency->setCount($count);
+            $em->flush();
+            return $this->redirectToRoute('app_admin');
+        }
+    
+    /**
+     * @Route("/admin/compteur/dec/{id<[0-9]+>}", name="app_compteur_dec")
+     */
+    public function dec(EntityManagerInterface $em, Agency $agency)
+        {
+            $count = $agency->getCount();
+            $count--;
+            $agency->setCount($count);
+            $em->flush();
+            return $this->redirectToRoute('app_admin');
+        }
 }
 

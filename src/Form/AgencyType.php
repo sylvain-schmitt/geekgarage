@@ -30,6 +30,7 @@ class AgencyType extends AbstractType
             ->add('mail', EmailType::class,[
                 'label' => 'E-Mail',
             ])
+            
             ->add('address', TextType::class,[
                 'label' => 'Address',
             ])

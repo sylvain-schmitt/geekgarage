@@ -10,7 +10,12 @@
 			<div>
 				<h2>Geek Garage By <img class="main-logo" src="https://www.cloud-elearning.eu/php5/manager/ressources/tpl/login/images/logo.svg" alt="onlineformapro-logo"></h2> 
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus maxime corporis, magnam veniam ad sapiente!</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus maxime corporis, magnam veniam ad sapiente!</p>
+				 {% set somme = 0 %}
+            {% set sum = 0 %}
+                {% for agency in agencies %}
+                    {% set somme = somme+ agency.count %}
+                {% endfor %}
+				<p class="count">Ordinateurs Sauvés <span>{{somme}}</span></p> 
 			</div>
 		</main>
 </section>
@@ -46,26 +51,26 @@
     <h2 class="my-5 text-center h1">Choisir son centre</h2>
 	     {{ include ('partials/_flash_messages.html.twig') }}
 	<div id="map" class="mx-auto  rounded shadow"> </div>
+</section>
     <div class="container mt-4 mb-5">
         <div class="modal fade" id="modal-contact" tabindex="-1" aria-labelledby="modal-contactLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="modal-contactLabel">Nous contacter</h5>
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>			</div>
-			{{ form_start(form) }}
-			<div class="modal-body">
-            {{ form_widget(form)}}
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="modal-contactLabel">Nous contacter</h5>
+					</div>
+					{{ form_start(form) }}
+					<div class="modal-body">
+					{{ form_widget(form)}}
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fermer</button>
+						<button type="submit" class="btn btn-outline-danger">Envoyer</button>
+					</div>
+					{{ form_end(form) }}
+				</div>
 			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fermer</button>
-				<button type="submit" class="btn btn-outline-danger">Envoyer</button>
-			</div>
-			{{ form_end(form) }}
-			</div>
-		</div>
 		</div>
     </div>
-</section>
 
 {% endblock %}

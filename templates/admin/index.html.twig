@@ -17,6 +17,7 @@
                     <th scope="col">Adresse Postale</th>
                     <th scope="col">Numéro de téléphone</th>
                     <th scope="col">E-Mail</th>
+                    <th scope="col">Nbr d'inter</th>
                     <th scope="col">Action</th>
                 </tr>
                 </thead>
@@ -27,6 +28,10 @@
                         <td>{{ agency.address }}</td>
                         <td>{{ agency.number }}</td>
                         <td>{{ agency.mail }}</td>
+                        <td>{{ agency.count }}
+                        <a href="{{ path('app_compteur_inc',{id: agency.id})}}" class="btn btn-success">+</i></a>
+                        <a href="{{ path('app_compteur_dec',{id: agency.id})}}" class="btn btn-danger">-</a>
+                        </td>
                         <td><a href="{{ path('app_map_edit',{id: agency.id}) }}" class="btn btn-success">Editer</a>
                         <a href="#" onclick="event.preventDefault(); confirm('êtes vous sur de vouloir supprimer le centre {{agency.city}} ?') && document.getElementById('js-agency-delete-form-{{ agency.id }}').submit();" class="btn btn-danger">Supprimer</a>
                             <form id="js-agency-delete-form-{{ agency.id }}" action="{{ path('app_map_delete', {id: agency.id}) }}" method="post" style="display:none;">
@@ -39,6 +44,15 @@
                 </tbody>
             </table>
         </div>
+        
+
+        {% set somme = 0 %}
+            {% set sum = 0 %}
+                {% for agency in agencies %}
+                    {% set somme = somme+ agency.count %}
+                {% endfor %}
+           <p>Nombres Totals d'interventions {{somme}}</p> 
+        
     </div>
 
 {% endblock %}

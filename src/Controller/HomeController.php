@@ -19,8 +19,9 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="app_home")
      */
-    public function home(Request $request, MailerServiceInterface $mailer): Response
+    public function home(Request $request, MailerServiceInterface $mailer, AgencyRepository $agencyRepository): Response
     {
+        $agencies = $agencyRepository->findAll();
         $contact = new Contact();
         $form = $this->createForm(ContactType::class, $contact);
 
@@ -44,7 +45,8 @@ class HomeController extends AbstractController
             return $this->redirect($url);
         }
         return $this->render('home/index.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'agencies' => $agencies
         ]);
     }
 

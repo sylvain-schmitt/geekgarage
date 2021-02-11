@@ -3,45 +3,35 @@
 {% block title %}Connexion{% endblock %}
 
 {% block body %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+        <form method="post">
+            <div class="bg-img">
+            <div class="content">
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            Vous êtes connecter en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>
-        </div>
-    {% endif %}
-
-    <h1 class="h3 mb-3 font-weight-normal text-center">Merci de vous connecter</h1>
-    <div class="col-lg-4 col-md-6 col-sm-8 mx-auto my-5">
-        <div class="card rounded shadow p-5">
-            <label for="inputUsername">Nom d'utilisateur</label>
-            <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control mb-3" required autofocus>
-            <label for="inputPassword">Mot de passe</label>
-            <input type="password" name="password" id="inputPassword" class="form-control mb-3" required>
-
-            <input type="hidden" name="_csrf_token"
-                value="{{ csrf_token('authenticate') }}"
-            >
-
-            {#
-                Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-                See https://symfony.com/doc/current/security/remember_me.html
-
-                <div class="checkbox mb-3">
-                    <label>
-                        <input type="checkbox" name="_remember_me"> Remember me
-                    </label>
+            {% if app.user %}
+                <div class="pass">
+                    Vous êtes connecter en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>
                 </div>
-            #}
-            <div class="d-grid gap-2 mt-4">
-            <button class="btn btn-outline-danger" type="submit">
-                Connexion
-            </button>
+            {% endif %}
+                <header>Connexion</header>
+                <div class="field">
+                    <span class="fa fa-user"></span>
+                    <input type="text" value="{{ last_username }}" name="username" id="inputUsername" required placeholder="Nom d'utilisateur">
+                </div>
+                <div class="field space">
+                    <span class="fa fa-lock"></span>
+                    <input type="password" name="password" id="inputPassword" class="pass-key" required placeholder="mot de passe">
+                </div>
+                 <div class="pass">
+                 <input type="hidden" name="_csrf_token"
+                value="{{ csrf_token('authenticate') }}">
+                </div>
+                <div class="field">
+                    <input type="submit" value="connexion">
+                </div>
             </div>
-        </div>
-    </div>
-</form>
+            </div>
+        </form>
 {% endblock %}

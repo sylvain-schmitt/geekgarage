@@ -23,10 +23,10 @@ class ContactType extends AbstractType
             'required' => true
             ])
             ->add('name', TextType::class,[
-                'label' => 'Votre Nom et Prénom',
+                'label' => 'Votre Nom et Prénom'
             ])
             ->add('email', EmailType::class, [
-                'label' => 'Votre E-mail',
+                'label' => 'Votre E-mail'
             ])
             ->add('phone', TelType::class,[
                 'label' => 'Téléphone',
@@ -37,7 +37,7 @@ class ContactType extends AbstractType
                 ]
             ])
             ->add('message', TextareaType::class, [
-                'label' => 'Décrivez votre problème',
+                'label' => 'Décrivez votre problème'
             ])
         ;
     }

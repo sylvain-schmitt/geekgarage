@@ -1,25 +1,79 @@
 <!DOCTYPE html>
-<html class="h-100">
+<html >
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width">
     <title>{% block title %}Welcome!{% endblock %}</title>
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
+        <!-- Include All CSS here-->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="css/owl.carousel.css"/>
+        <link rel="stylesheet" type="text/css" href="css/owl.theme.css"/>
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
+        <link rel="stylesheet" type="text/css" href="css/animate.css"/>
+        <link rel="stylesheet" type="text/css" href="css/magnific-popup.css"/>
+        <link rel="stylesheet" type="text/css" href="css/settings.css"/>
+        <link rel="stylesheet" type="text/css" href="css/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="css/icons.css"/>
+        <link rel="stylesheet" type="text/css" href="css/preset.css"/>
+        <link rel="stylesheet" type="text/css" href="css/theme.css"/>
+        <link rel="stylesheet" type="text/css" href="css/responsive.css"/>
+        <link rel="stylesheet" type="text/css" href="css/presets/color1.css" id="colorChange"/>
+        <!-- End Include All CSS -->
     {% endblock %}
 
 
 </head>
-    {{ include ('partials/_nav.html.twig') }}
-<body class="d-flex flex-column h-100">
+    
+<body>
+   <!-- Preloading -->
+        <div class="preloader text-center">
+            <div class="la-ball-circus la-2x">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <!-- Preloading -->
+
             {% block body %}
             {% endblock %}
-    {{ include ('partials/_footer.html.twig') }}
     {% block javascripts %}
         <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
         <script src='https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js'></script>
         <script src="/js/compteur.js"></script>
         {{ encore_entry_script_tags('app') }}
+                <!-- Include All JS -->
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/modernizr.custom.js"></script>
+        <script src="js/gmaps.js"></script>
+        <script src="https://maps.google.com/maps/api/js?key=AIzaSyDTPlX-43R1TpcQUyWjFgiSfL_BiGxslZU"></script>
+        <script src="js/jquery.themepunch.revolution.min.js"></script>
+        <script src="js/jquery.themepunch.tools.min.js"></script>
+        <!-- Rev slider Add on Start -->
+        <script src="js/extensions/revolution.extension.actions.min.js"></script>
+        <script src="js/extensions/revolution.extension.carousel.min.js"></script>
+        <script src="js/extensions/revolution.extension.kenburn.min.js"></script>
+        <script src="js/extensions/revolution.extension.migration.min.js"></script>
+        <script src="js/extensions/revolution.extension.parallax.min.js"></script>
+        <script src="js/extensions/revolution.extension.slideanims.min.js"></script>
+        <script src="js/extensions/revolution.extension.layeranimation.min.js"></script>
+        <script src="js/extensions/revolution.extension.navigation.min.js"></script>
+        <script src="js/extensions/revolution.extension.video.min.js"></script>
+        <!-- Rev slider Add on End -->
+        <script src="js/dlmenu.js"></script>
+        <script src="js/jquery.magnific-popup.js"></script>
+        <script src="js/mixer.js"></script>
+        <script src="js/jquery.easing.1.3.js"></script>
+        <script src="js/owl.carousel.js"></script>
+        <script src="js/slick.js"></script>
+        <script src="js/jquery.appear.js"></script>
+        <script src="js/theme.js"></script>
+        <!-- Include All JS -->
     {% endblock %}
 </body>
 </html>

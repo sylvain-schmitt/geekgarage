@@ -9,11 +9,11 @@
 import './styles/leaflet.css';
 import './styles/MarkerCluster.css';
 import './styles/MarkerCluster.Default.css';
-import { Tooltip, Toast, Popover } from 'bootstrap';
+//import { Tooltip, Toast, Popover } from 'bootstrap';
 import './styles/app.scss';
 
 // start the Stimulus application
-import './bootstrap';
+//import './bootstrap';
 import './map';
 var myModal = document.getElementById('modal-contact')
 var myInput = document.getElementById('myInput')
@@ -39,16 +39,6 @@ window.addEventListener("scroll", event => {
       link.classList.remove("active");
     }
   });
-});
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
 });
 
 

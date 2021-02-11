@@ -1,58 +1,104 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Dashboard Admin{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{{ asset('css/admin.css') }}"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+{% endblock %}
 
 {% block body %}
+        <input type="checkbox" id="check">
+    <!--header area start-->
+    <header>
+      <label for="check">
+        <i class="fas fa-bars" id="sidebar_btn"></i>
+      </label>
+      <div class="left_area">
+        <h3>Repare Pc<span> BY</span></h3>
+      </div>
+      <div class="right_area">
+        <a href="{{ path('app_logout') }}" class="logout_btn"><i class="fas fa-sign-out-alt"></i>Déconnexion</a>
+      </div>
+    </header>
+    <!--header area end-->
+    <!--mobile navigation bar start-->
+    <div class="mobile_nav">
+      <div class="nav_bar">
+        <img src="/images/logo.svg" class="mobile_profile_image" alt="">
+        <i class="fa fa-bars nav_btn"></i>
+      </div>
+      <div class="mobile_nav_items">
+        <a href="{{ path('app_admin') }}"><i class="fas fa-cogs"></i><span>Dashboard</span></a>
+        <a href="{{ path('app_map_create') }}"><i class="fas fa-desktop"></i><span>Nouveau Centre</span></a>
+        <a href="{{ path('app_home') }}"><i class="fas fa-globe-europe"></i><span>Accueil</span></a>
+        <a href="{{ path('app_logout') }}"><i class="fas fa-sign-out-alt"></i>Déconnexion</a>
+      </div>
+    </div>
+    <!--mobile navigation bar end-->
+    <!--sidebar start-->
+    <div class="sidebar">
+      <div class="profile_info">
+        <img src="/images/logo.svg" class="profile_image" alt="">
+        <h4>{{ app.user.username }}</h4>
+      </div>
+        <a href="{{ path('app_admin') }}"><i class="fas fa-cogs"></i><span>Dashboard</span></a>
+      <a href="{{ path('app_map_create') }}"><i class="fas fa-desktop"></i><span>Nouveau Centre</span></a>
+      <a href="{{ path('app_home') }}"><i class="fas fa-globe-europe"></i><span>Accueil</span></a>
+    </div>
+    <!--sidebar end-->
 
-
-
-    <div class="container">
-    <h1 class="text-center mb-5">Dashboard Admin</h1>
-        <div class="table-responsive">
-        {{ include ('partials/_flash_messages.html.twig') }}
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th scope="col">Ville</th>
-                    <th scope="col">Adresse Postale</th>
-                    <th scope="col">Numéro de téléphone</th>
-                    <th scope="col">E-Mail</th>
-                    <th scope="col">Nbr d'inter</th>
-                    <th scope="col">Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for agency in agencies %}
-                    <tr>
-                        <th scope="row">{{ agency.city }}</th>
-                        <td>{{ agency.address }}</td>
-                        <td>{{ agency.number }}</td>
-                        <td>{{ agency.mail }}</td>
-                        <td>{{ agency.count }}
-                        <a href="{{ path('app_compteur_inc',{id: agency.id})}}" class="btn btn-success">+</i></a>
-                        <a href="{{ path('app_compteur_dec',{id: agency.id})}}" class="btn btn-danger">-</a>
-                        </td>
-                        <td><a href="{{ path('app_map_edit',{id: agency.id}) }}" class="btn btn-success">Editer</a>
-                        <a href="#" onclick="event.preventDefault(); confirm('êtes vous sur de vouloir supprimer le centre {{agency.city}} ?') && document.getElementById('js-agency-delete-form-{{ agency.id }}').submit();" class="btn btn-danger">Supprimer</a>
-                            <form id="js-agency-delete-form-{{ agency.id }}" action="{{ path('app_map_delete', {id: agency.id}) }}" method="post" style="display:none;">
-                                <input type="hidden" name="csrf_token"value="{{ csrf_token('agency_deletion_' ~ agency.id) }}">
-                                <input type="hidden" name="_method" value="DELETE">
-                            </form>
-                        </td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        </div>
-        
-
+    <div class="content">
+    {{ include ('partials/_flash_messages.html.twig') }}
+      <div class="card">
+        <table>
+    <thead>
+    <tr>
+        <th>Ville</th>
+        <th>Adresse Postale</th>
+        <th>Numéro de téléphone</th>
+        <th>E-Mail</th>
+        <th>Nombres d'interventions</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+ {% for agency in agencies %}
+    <tr>
+        <td>{{ agency.city }}</td>
+        <td>{{ agency.address }}</td>
+        <td>{{ agency.number }}</td>
+        <td>{{ agency.mail }}</td>
+        <td>{{ agency.count }}
+        <a href="{{ path('app_compteur_inc',{id: agency.id})}}" class="btn btn-success"><i class="far fa-plus-square"></i></a>
+        <a href="{{ path('app_compteur_dec',{id: agency.id})}}" class="btn btn-danger"><i class="fas fa-minus"></i></a>
+        </td>
+        <td><a href="{{ path('app_map_edit',{id: agency.id}) }}" class="btn btn-success"><i class="fas fa-edit"></i></a>
+        <a href="#" onclick="event.preventDefault(); confirm('êtes vous sur de vouloir supprimer le centre {{agency.city}} ?') && document.getElementById('js-agency-delete-form-{{ agency.id }}').submit();" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+            <form id="js-agency-delete-form-{{ agency.id }}" action="{{ path('app_map_delete', {id: agency.id}) }}" method="post" style="display:none;">
+                <input type="hidden" name="csrf_token"value="{{ csrf_token('agency_deletion_' ~ agency.id) }}">
+                <input type="hidden" name="_method" value="DELETE">
+            </form>
+        </td>
+    </tr>
+    {% endfor %}    
+    </tbody>
+</table>
+      </div>
+      <div class="card">
         {% set somme = 0 %}
             {% set sum = 0 %}
                 {% for agency in agencies %}
                     {% set somme = somme+ agency.count %}
                 {% endfor %}
            <p>Nombres Totals d'interventions {{somme}}</p> 
-        
+      </div>
     </div>
-
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $('.nav_btn').click(function(){
+        $('.mobile_nav_items').toggleClass('active');
+      });
+    });
+    </script>
 {% endblock %}

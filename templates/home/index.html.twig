@@ -1,76 +1,305 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}GeekGarage | Home{% endblock %}
+{% block title %}Repare Pc By Oline | Home{% endblock %}
 
 {% block body %}
+    {{ include ('partials/_nav.html.twig') }}
+        <!-- Revolution Slider -->
+        <section class="rev_slider" id="home">
+            <div class="rev_slider_wrapper">
+                <div id="rev_slider_1" class="rev_slider" data-version="5.4.5">
+                    <ul>
+                        <!-- MINIMUM SLIDE STRUCTURE -->
+                        <li data-transition="random" data-masterspeed="1000">
+                            <!-- SLIDE'S MAIN BACKGROUND IMAGE -->
+                            <img src="images/slider/1_1.jpg" alt="réparation de pc" class="rev-slidebg">
+                            <div class="tp-caption tp-resizeme normalWraping layer_1" 
 
-<section id="home">
-	<h1 class="my-5 text-center">Qui sommes nous ?</h1>
-		<main class="page-main">
-			<div>
-				<h2>Geek Garage By <img class="main-logo" src="https://www.cloud-elearning.eu/php5/manager/ressources/tpl/login/images/logo.svg" alt="onlineformapro-logo"></h2> 
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus maxime corporis, magnam veniam ad sapiente!</p>
-				 {% set somme = 0 %}
-            {% set sum = 0 %}
-                {% for agency in agencies %}
-                    {% set somme = somme+ agency.count %}
-                {% endfor %}
-				<p class="count">Ordinateurs Sauvés <span>{{somme}}</span></p> 
-			</div>
-		</main>
-</section>
-    <div class="sep"></div>
-<section id="service" class="container">
-	<h2 class="my-5 text-center h1">Type de préstation</h2>
-		<div class="slideshow rounded shadow">
-			<div class="slideshow-item">
-				<img src="images/slide/diag.jpeg" alt="Diagnostique image">
-				<div class="slideshow-item-text">
-					<h5>Diagnostic</h5>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-				</div>
-			</div>
-			<div class="slideshow-item">
-				<img src="images/slide/soft.jpeg" alt="software image">
-				<div class="slideshow-item-text">
-					<h5>Software</h5>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-				</div>
-			</div>
-			<div class="slideshow-item">
-				<img src="images/slide/maint.jpeg" alt="maintenance image">
-				<div class="slideshow-item-text">
-					<h5>Maintenance</h5>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-				</div>
-			</div>
-		</div>
-</section>
-    <div class="sep2"></div>
-<section id="contact" class="container">
-    <h2 class="my-5 text-center h1">Choisir son centre</h2>
-	     {{ include ('partials/_flash_messages.html.twig') }}
-	<div id="map" class="mx-auto  rounded shadow"> </div>
-</section>
-    <div class="container mt-4 mb-5">
+                                 data-frames='[{"delay":1300,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},
+                                 {"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+
+                                 data-x="center" 
+                                 data-y="center" 
+                                 data-hoffset="0" 
+                                 data-voffset="['-124', '-110', '-100', '-50']" 
+                                 data-width="100%"
+                                 data-height="['auto]"
+                                 data-whitesapce="['normal']"
+                                 data-fontsize="20"
+                                 data-lineheight="36"
+                                 data-fontweight="400"
+                                 data-letterspacing="2"
+                                 data-color="#FFF"
+                                 data-textAlign="center"
+                                 >BIENVENUE CHEZ</div>
+                            <div class="tp-caption tp-resizeme normalWraping layer_2" 
+
+                                 data-frames='[{"delay":1600,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},
+                                 {"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]' 
+
+                                 data-x="center" 
+                                 data-y="center" 
+                                 data-hoffset="0" 
+                                 data-voffset="['12', '20', '10', '25']" 
+                                 data-width="100%"
+                                 data-height="['auto]"
+                                 data-whitesapce="['normal']"
+                                 data-word-wrap="['normal']"
+                                 data-white-break="['break-all']"
+                                 data-fontsize="['110', '70', '60', '40']"
+                                 data-lineheight="['112', '80', '65', '50']"
+                                 data-fontweight="700"
+                                 data-letterspacing="['4.4', '4.4', '2', '1']"
+                                 data-color="#FFF"
+                                 data-textAlign="center"
+                                 >REPARE PC<br> </div>
+                            <div class="tp-caption tp-resizeme normalWraping layer_3"
+
+                                 data-frames='[{"delay":2000,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},
+                                 {"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+
+                                 data-x="center"
+                                 data-y="center" 
+                                 data-hoffset="0" 
+                                 data-voffset="['212', '200', '150', '140']" 
+                                 data-width="100%"
+                                 data-height="['auto]"
+                                 data-whitesapce="['normal']"
+                                 data-fontsize="16"
+                                 data-lineheight=""
+                                 data-fontweight="400"
+                                 data-textAlign="center"
+                                 ></div>
+                        </li>
+                        <li data-transition="random" data-masterspeed="1000">
+                            <!-- SLIDE'S MAIN BACKGROUND IMAGE -->
+                            <img src="images/slider/1_2.jpg" alt="Utilisateur heureux" class="rev-slidebg">
+                            <div class="tp-caption tp-resizeme normalWraping layer_1" 
+
+                                 data-frames='[{"delay":1300,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},
+                                 {"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+
+                                 data-x="center" 
+                                 data-y="center" 
+                                 data-hoffset="0" 
+                                 data-voffset="['-124', '-110', '-100', '-50']" 
+                                 data-width="100%"
+                                 data-height="['auto]"
+                                 data-whitesapce="['normal']"
+                                 data-fontsize="20"
+                                 data-lineheight="36"
+                                 data-fontweight="400"
+                                 data-letterspacing="2"
+                                 data-color="#FFF"
+                                 data-textAlign="center"
+                                 >BY</div>
+                            <div class="tp-caption tp-resizeme normalWraping layer_2" 
+
+                                 data-frames='[{"delay":1600,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},
+                                 {"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]' 
+
+                                 data-x="center" 
+                                 data-y="center" 
+                                 data-hoffset="0" 
+                                 data-voffset="['12', '20', '10', '25']" 
+                                 data-width="100%"
+                                 data-height="['auto]"
+                                 data-whitesapce="['normal']"
+                                 data-word-wrap="['normal']"
+                                 data-white-break="['break-all']"
+                                 data-fontsize="['110', '70', '60', '40']"
+                                 data-lineheight="['112', '80', '65', '50']"
+                                 data-fontweight="700"
+                                 data-letterspacing="['4.4', '4.4', '2', '1']"
+                                 data-color="#FFF"
+                                 data-textAlign="center"
+                                 >ONLINEFORMAPRO<br></div>
+                            <div class="tp-caption tp-resizeme normalWraping layer_3"
+
+                                 data-frames='[{"delay":2000,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},
+                                 {"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+
+                                 data-x="center"
+                                 data-y="center" 
+                                 data-hoffset="0" 
+                                 data-voffset="['212', '200', '150', '140']" 
+                                 data-width="100%"
+                                 data-height="['auto]"
+                                 data-whitesapce="['normal']"
+                                 data-fontsize="16"
+                                 data-lineheight=""
+                                 data-fontweight="400"
+                                 data-textAlign="center"
+                                 ></div>
+                        </li>
+                    </ul><!-- END SLIDES LIST -->
+                </div>
+            </div>
+        </section>
+        <!-- Revolution Slider -->
+
+		        <!-- FunFact Section -->
+								{% set somme = 0 %}
+								{% set sum = 0 %}
+								{% for agency in agencies %}
+									{% set somme = somme+ agency.count %}
+								{% endfor %}
+        <section class="commonSection funfact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6 col-md-3 noPadding BR">
+                        <div class="singlefunfact text-center">
+                            <h1 data-counter='{{somme}}' class="timer"><span class="countSpan">
+							</span>{{somme}}</h1>
+                            <h3>Ordinateurs Sauvés</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- FunFact Section -->
+
+        <!-- Trust Clients Section -->
+        <section class="commonSection trustClient">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12">
+                        <div class="CL_content">
+                            <img src="images/home_1/4.jpg" alt="utilisateur satisfait">
+                            <div class="abc_inner">
+                                <div class="row">
+                                    <div class="col-lg-5 col-sm-5 col-md-5">
+                                    </div>
+                                    <div class="col-lg-7 col-sm-7 col-md-7">
+                                        <div class="abci_content">
+                                            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidi-dunt ut labore et dolore magna aliqua.
+                                                Ut enim ad minim veniam, quis nostrud exercita-tion ullamco laboris nisi ut aliquip ex ea commodo.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section >
+        <!-- Trust Clients Section -->
+		<div id="service"></div>
+		<!-- Portfolio Section -->
+        <section class="commonSection porfolio" >
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="sec_title">Nos Services</h2>
+                        <p class="sec_desc">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, officia quis<br> Lorem ipsum dolor sit amet consectetur.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 col-md-4">
+                        <div class="singlefolio">
+                            <img src="images/portfolio/1.jpeg" alt="diagnostic pc"/>
+                            <div class="folioHover">
+                                <h4>Diagnostic</h4>
+								<p class="card-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+					<div class="col-lg-4 col-sm-6 col-md-4">
+                        <div class="singlefolio">
+                            <img src="images/portfolio/2.jpeg" alt="installation software"/>
+                            <div class="folioHover">
+                                <h4>Installation software</h4>
+								<p class="card-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+					<div class="col-lg-4 col-sm-6 col-md-4">
+                        <div class="singlefolio">
+                            <img src="images/portfolio/3.jpeg" alt="maintenance"/>
+                            <div class="folioHover">
+                                <h4>Maintenance</h4>
+								<p class="card-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+					<div class="col-lg-4 col-sm-6 col-md-4">
+                        <div class="singlefolio">
+                            <img src="images/portfolio/4.jpg" alt="remaster"/>
+                            <div class="folioHover">
+                                <h4>Remaster</h4>
+								<p class="card-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Portfolio Section -->
+		<div id="contact"></div>
+		<!-- What We Do Section -->
+        <section class="commonSection what_wedo">
+            <div class="container">
+                <div class="row">
+                {{ include ('partials/_flash_messages.html.twig') }}
+                    <div class="col-lg-12 text-center">
+                        <h4 class="sub_title">Comment</h4>
+                        <h2 class="sec_title">Nous contacter</h2>
+                        <p class="sec_desc">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, quam consequatur<br> Lorem ipsum dolor sit amet consectetur.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-sm-6 col-md-6 PR_79">
+                        <h4 class="sub_title">Lorem ipsum dolor sit amet consectetur.</h4>
+                        <h2 class="sec_title MB_45">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore</h2>
+                        <p class="sec_desc">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit voluptate repudiandae, doloribus ipsum error, animi odio sequi, molestiae pariatur eum delectus? Deserunt, rem ratione natus velit reprehenderit et tenetur illum.
+                        </p>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-md-6">
+                        <div id="map">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+            {{ include ('partials/_footer.html.twig') }}
+        <!-- Bact To To -->
+        <a id="backToTop" href="#" class=""><i class="fa fa-angle-double-up"></i></a>
+        <!-- Bact To To -->
+        <!-- What We Do Section -->
         <div class="modal fade" id="modal-contact" tabindex="-1" aria-labelledby="modal-contactLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="modal-contactLabel">Nous contacter</h5>
-					</div>
-					{{ form_start(form) }}
-					<div class="modal-body">
-					{{ form_widget(form)}}
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fermer</button>
-						<button type="submit" class="btn btn-outline-danger">Envoyer</button>
-					</div>
-					{{ form_end(form) }}
-				</div>
-			</div>
-		</div>
-    </div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-contactLabel">Nous contacter</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            {{ form_start(form) }}
+                {{ form_row(form.name)}}
+                {{ form_row(form.email)}}
+                {{ form_row(form.phone)}}
+                {{ form_row(form.message)}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                <button type="submit" class="btn btn-danger">Envoyer</button>
+            </div>
+            {{ form_end(form) }}
+            </div>
+        </div>
+        </div>
+
+
+
 
 {% endblock %}

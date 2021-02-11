@@ -21,7 +21,7 @@ class RegistrationFormType extends AbstractType
             ->add('username', TextType::class, [
                 'label' => 'Nom',
                 'attr' => [
-                    'class' => 'mb-3',
+                    'placeholder' => 'Votre nom',
                 ]
             ])
             ->add('agreeTerms', CheckboxType::class, [
@@ -49,7 +49,7 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
                 'attr' => [
-                    'class' => 'mb-3',
+                    'placeholder' => 'Mot de passe',
                 ]
             ])
         ;

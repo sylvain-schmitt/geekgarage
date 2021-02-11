@@ -36,12 +36,12 @@ xmlhttp.onreadystatechange = () => {
                 // On crée un marqueur pour l'agence
                 let ville = agence[1].city;
                 let marker = L.marker([agence[1].lat, agence[1].lon], {icon: icone})
-                marker.bindPopup("<img class='online' src='https://www.onlineformapro.com/wp-content/uploads/2020/01/logo-03.svg' >" +
+                marker.bindPopup("<img class='online' src='images/logo-02.svg' >" +
                     "<h5 class='text-center'>" + ville + "</h5><ul class='list-group list-group-flush'><li class='list-group-item'>" + agence[1].address + "</li>" +
                     "<li class='list-group-item'>" + agence[1].number + "</li><li class='list-group-item'>" + agence[1].mail + "</li>" +
                     "<li class='list-group-item'>" + agence[1].comment + "</li></ul><div class='btnMapContact d-grid gap-2 col-12 mx-auto'>" +
                     "<button onclick=\"document.getElementById('contact_center').value = 'Nouveau message pour le centre de " + ville + "';\" type='button' " +
-                    "class='btn btn-outline-danger' data-bs-toggle='modal' data-bs-target='#modal-contact'>Nous Contacter</button></div>");
+                    "class='btn btn-danger' data-toggle='modal' data-target='#modal-contact'>Nous Contacter</button></div>");
                 markers.addLayer(marker); // On ajoute le marqueur au groupe
                 // On ajoute le marqueur au tableau
                 arrayMarkers.push(marker);

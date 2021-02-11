@@ -131,9 +131,11 @@ class AdminController extends AbstractController
     public function dec(EntityManagerInterface $em, Agency $agency)
         {
             $count = $agency->getCount();
-            $count--;
-            $agency->setCount($count);
-            $em->flush();
+            if ($count >=1) {
+                $count--;
+                $agency->setCount($count);
+                $em->flush();
+            }
             return $this->redirectToRoute('app_admin');
         }
 }

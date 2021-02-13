@@ -267,11 +267,11 @@ website:   	http://www.themepunch.com
 .rev_slider .tp-caption,
 .rev_slider .caption,
 .tp-simpleresponsive img {
-	-moz-user-select: none;
-    -khtml-user-select: none;
+	user-select: none;
+    /* -khtml-user-select: none;
     -webkit-user-select: none;
-    -o-user-select: none;
-}
+    -o-user-select: none;*/
+} 
 
 .rev_slider .tp-mask-wrap .tp-caption,
 .rev_slider .tp-mask-wrap *:last-child,
@@ -300,10 +300,10 @@ website:   	http://www.themepunch.com
 
 
 .tp-caption.tp-layer-selectable {
-	-moz-user-select: all;
-	-khtml-user-select: all;
+	user-select: all;
+	/* -khtml-user-select: all;
 	-webkit-user-select: all;
-	-o-user-select: all;	
+	-o-user-select: all;	 */
 }
 
 .tp-forcenotvisible,

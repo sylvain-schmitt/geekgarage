@@ -299,10 +299,10 @@ body{
     color: #73685d;
   }
     
-   @media all and (max-width: 768px) {
+  @media all and (max-width: 768px) {
       
     table, thead, tbody, th, td, tr {
-      display: block;
+      display: flex;
     }
     
     th {
@@ -333,9 +333,9 @@ body{
       vertical-align: top;
     }
     
-    th {
+    /* th {
       border-bottom: 1px solid #a39485;
-    }
+    } */
     
     td {
       border-bottom: 1px solid #e5e5e5;
@@ -343,6 +343,8 @@ body{
     
     
     }
+    
+    
 
     /*btn*/ 
 
@@ -350,6 +352,7 @@ body{
         display: inline-block;
         padding: 6px 12px;
         margin-bottom: 0;
+        margin-left: 5px;
         font-size: 14px;
         font-weight: normal;
         line-height: 1.42857143;
